@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gas Utility</title>
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a>
+        {% if user.is_authenticated %}
+            <a href="/create/">Create Request</a>
+            <a href="/requests/">My Requests</a>
+            <a href="/logout/">Logout</a>
+        {% else %}
+            <a href="/signup/">Sign Up</a> 
+            <a href="/login/">Login</a>
+        {% endif %}
+    </nav>
+    <div>
+        {% block content %}{% endblock %}
+    </div>
+    <h1>Welcome to the Gas Utility</h1>
+    <h2>We provide amazing services for customers</h2>
+    
+    <h3>Our Features:</h3>
+    <ul>
+        <li>Submit your service request online and track the status easily</li>
+        <li>Get instant updates on the progress of your request</li>
+        <li>24/7 customer support for any issues</li>
+        <li>Fast and efficient gas utility services</li>
+    </ul>
+
+    <h3>Why Choose Us?</h3>
+    <ul>
+        <li>Reliable and trustworthy services</li>
+        <li>Seamless user experience through our platform</li>
+        <li>Dedicated customer care team to assist you at every step</li>
+    </ul>
+
+    <hr>
+    {% if user.is_authenticated %}
+    <div>
+        <h3>Submit your request <a href="/create/">Submit Request</a></h3>
+        <h3>Track your request <a href="/requests/">My Requests</a></h3>
+           <h3><a href="/logout/">Logout</a></h3> </div>
+    {% else %}
+    <footer>
+        <div>
+    <h3>If you are a new user, register yourself <a href="/signup/">Sign Up</a></h3>
+    <h3>If you already have an account, login here <a href="/login/">Login</a></h3>
+        </div>
+    {% endif %}
+    </footer>
+    </body>
+</html>

@@ -1,0 +1,21 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+  <h2>My Service Requests</h2>
+  <table border="2px">
+      <tr>
+          <th>Type</th>
+          <th>Status</th>
+          <th>Created At</th>
+          <th>Resolved At</th>
+      </tr>
+      {% for request in requests %}
+      <tr>
+          <td>{{ request.service_type }}</td>
+          <td>{{ request.status }}</td>
+          <td>{{ request.created_at }}</td>
+          <td>{{ request.resolved_at|default:"-" }}</td>
+      </tr>
+      {% endfor %}
+  </table>
+{% endblock %}
